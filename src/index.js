@@ -74,7 +74,8 @@ class Game extends React.Component {
           col: this.convertToCol(i),
           row: this.convertToRow(i),
         }
-      ]),
+      ]
+    ),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
     })
@@ -116,9 +117,11 @@ class Game extends React.Component {
       const desc = move ?
         'Go to move #' + move :
         'Go to game start';
+      const colRowFormat = '(col, row) : (' + current.col + ', ' + current.row + ')'
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <p>{colRowFormat}</p>
         </li>
       );
     });
